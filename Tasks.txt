@@ -1,0 +1,14 @@
+Snapshot of Children Around the Globe (Working Title)
+
+API used: Google Maps and UN data
+
+Dynamic choropleth map of various statistics affecting the lives of children by country (e.g. mortality below 5, literacy, education, access to water)
+
+Website layout
+  -drop down menu
+  -data less map that is filled in by user.
+Database
+  -Collect data from UN API, store to database.
+  -Check UN API for changes and update database
+  -Deploy to Heroku or Firebase
+  
