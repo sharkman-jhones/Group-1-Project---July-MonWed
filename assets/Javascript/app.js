@@ -2,8 +2,12 @@ var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 0, lng: 0},
-    zoom: 2
+    zoom: 2,
+    mapTypeControl: false,
+    streetViewControl: false,
+    mapTypeId: 'satellite'
   });
+  map.setTilt(45);
 }
 
 /*function loadMapShapes(){
