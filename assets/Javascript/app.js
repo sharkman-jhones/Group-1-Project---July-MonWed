@@ -1,5 +1,6 @@
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
+
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -18,3 +19,17 @@ window.onclick = function(event) {
     }
   }
 }
+
+
+
+//$(".login").leanModal({closeButton: ".modal_close"});
+
+/*$(function(){
+  $('#loginform').submit(function(e){
+    return false;
+  });*/
+$(".login").on("click", function() {
+  $("#lean_overlay").trigger("click");
+ // $("#loginmodal").leanModal();
+});
+//});
