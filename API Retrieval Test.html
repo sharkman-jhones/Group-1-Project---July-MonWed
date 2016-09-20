@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>API Retrieval Test</title>
+    <link rel="stylesheet" href='assets/CSS/bootstrap.css'>
+    <link rel="stylesheet" href='assets/CSS/bootstrap-theme.css'>
+    <link rel="stylesheet" type="text/css" href="API Test Style.css">
+</head>
+
+<body>
+    <div class="dropdown" id="datasetMainDD">
+        <button class="btn btn-large dropdown-toggle" type="button" id="dataSetDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Dataset Name
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" id="datasetListDD"></ul>
+    </div>
+    <br>
+    <div class="dropdown" id="countryMainDD" style="display:none">
+        <button class="btn btn-large dropdown-toggle" type="button" id="countryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Country
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" id="countryListDD"></ul>
+    </div>
+
+    <div id="dataDisplay"></div>
+
+    <script src='assets/Javascript/jquery-3.1.0.js'></script>
+    <script src="assets/Javascript/bootstrap.js"></script>
+    <script type="text/javascript">
+    var selectedDataSet;
+
+    $.ajax({
+        url: "http://api.undata-api.org/WHO/datasets?app_id=5444b42d&app_key=6090984d2a7a0ef71e838c46fa47d1ad",
+        method: 'GET'
+    })
+
+    .done(function(response) {
+        for (x = 0; x < response.length; x++) {
+            var current = response[x].name;
+            console.log(current);
+            $('#datasetListDD').append('<li><a href="#">' + current + '</a></li>');
+
+        }
+
+        $("#datasetListDD>li").on('click', function(event) {
+            $('#countryMainDD').css('display', 'inline');
+            $('#countryListDD').empty();
+            selectedDataSet = $(event.target).text();
+            $('#dataSetDropdown').text(selectedDataSet);
+            $('#countryDropdown').text("Country");
+            console.log(selectedDataSet);
+
+            $.ajax({
+                url: "http://api.undata-api.org/WHO/" + selectedDataSet + "/countries?app_id=5444b42d&app_key=6090984d2a7a0ef71e838c46fa47d1ad",
+                method: 'GET'
+            })
+
+            .done(function(response) {
+                for (x = 0; x < response.length; x++) {
+                    var current = response[x].name;
+                    console.log(current);
+                    $('#countryListDD').append('<li><a href="#">' + current + '</a></li>');
+
+                }
+
+                $('#countryListDD>li').on('click', function(event) {
+                	var selectedCountryName = $(event.target).text();
+                	$('#countryDropdown').text(selectedCountryName);
+                	console.log("You selected "+selectedCountryName)
+
+                    $.ajax({
+                        url: "http://api.undata-api.org/WHO/" + selectedDataSet + "/"+selectedCountryName+"/records?app_id=5444b42d&app_key=6090984d2a7a0ef71e838c46fa47d1ad",
+                        method: 'GET'
+                    })
+
+                    .done(function(response){
+                    	// $('#dataDisplay').append(response);
+                    	$('#dataDisplay').append(response[0].value);
+
+                    });
+
+
+                })
+
+            });
+
+
+        });
+
+    });
+    </script>
+</body>
+
+</html>
