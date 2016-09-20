@@ -16,17 +16,27 @@
         </button>
         <ul class="dropdown-menu" id="datasetListDD"></ul>
     </div>
+<<<<<<< HEAD
     <br>
     <div class="dropdown" id="countryMainDD" style="display:none">
         <button class="btn btn-large dropdown-toggle" type="button" id="countryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Country
+=======
+<br>
+    <div class="dropdown" id="countryMainDD" style="display:none">
+        <button class="btn btn-large dropdown-toggle" type="button" id="countryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Country Name
+>>>>>>> e99f363d24d519dbe4f2fd2764a9cf48901b7c85
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" id="countryListDD"></ul>
     </div>
 
+<<<<<<< HEAD
     <div id="dataDisplay"></div>
 
+=======
+>>>>>>> e99f363d24d519dbe4f2fd2764a9cf48901b7c85
     <script src='assets/Javascript/jquery-3.1.0.js'></script>
     <script src="assets/Javascript/bootstrap.js"></script>
     <script type="text/javascript">
@@ -41,6 +51,7 @@
         for (x = 0; x < response.length; x++) {
             var current = response[x].name;
             console.log(current);
+<<<<<<< HEAD
             $('#datasetListDD').append('<li><a href="#">' + current + '</a></li>');
 
         }
@@ -91,6 +102,38 @@
         });
 
     });
+=======
+            $('#datasetListDD').append('<li><a href="#">'+current+'</a></li>');
+
+        }
+
+        $("li").on('click', function(event){
+        $('#countryMainDD').css('display', 'inline');
+    	selectedDataSet = $(event.target).text();
+    	console.log(selectedDataSet);
+
+    	$.ajax({
+        url: "http://api.undata-api.org/WHO/"+selectedDataSet+"/countries?app_id=5444b42d&app_key=6090984d2a7a0ef71e838c46fa47d1ad",
+        method: 'GET'
+    })
+
+    	.done(function(response){
+    		for (x = 0; x < response.length; x++) {
+            var current = response[x].name;
+            console.log(current);
+            $('#countryListDD').append('<li><a href="#">'+current+'</a></li>');
+
+        }
+
+    	});
+
+
+    });
+
+    });
+
+    
+>>>>>>> e99f363d24d519dbe4f2fd2764a9cf48901b7c85
     </script>
 </body>
 
