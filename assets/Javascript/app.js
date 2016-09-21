@@ -20,6 +20,14 @@ window.onclick = function(event) {
   }
 }
 
+$(function(){
+  $('#loginform').submit(function(e){
+    return false;
+  });
+  
+  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+});
+
 
 
 //$(".login").leanModal({closeButton: ".modal_close"});
@@ -28,8 +36,9 @@ window.onclick = function(event) {
   $('#loginform').submit(function(e){
     return false;
   });*/
-$(".login").on("click", function() {
-  $("#lean_overlay").trigger("click");
- // $("#loginmodal").leanModal();
-});
+//$(".login").on("click", function() {
+  //$("#lean_overlay").trigger("click");
+ //$("#loginmodal").append('#lean_overlay');
+// $("#loginmodal").leanModal();
+//});
 //});
