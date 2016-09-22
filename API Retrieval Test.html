@@ -17,13 +17,6 @@
         <ul class="dropdown-menu" id="datasetListDD"></ul>
     </div>
     <br>
-    <!-- <div class="dropdown" id="countryMainDD" style="display:none">
-        <button class="btn btn-large dropdown-toggle" type="button" id="countryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Country
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" id="countryListDD"></ul>
-    </div> -->
     <div id="dataDisplay" style="display:none">
         <table class="table table-hover">
             <thead>
@@ -51,7 +44,6 @@
     .done(function(response) {
         for (x = 0; x < response.length; x++) {
             var current = response[x].name;
-            //console.log(current);
             $('#datasetListDD').append('<li><a href="#">' + current + '</a></li>');
 
         }
@@ -61,12 +53,9 @@
             currentDataValue = [];
             $('#dataDisplay>table>tbody').empty();
             $('#dataDisplay').css('display', 'inline')
-            // $('#countryMainDD').css('display', 'inline');
-            // $('#countryListDD').empty();
+
             selectedDataSet = $(event.target).text();
-            // $('#dataSetDropdown').text(selectedDataSet);
-            // $('#countryDropdown').text("Country");
-            // console.log(selectedDataSet);
+
 
             $.ajax({
                 url: "http://api.undata-api.org/WHO/" + selectedDataSet + "/countries?app_id=5444b42d&app_key=6090984d2a7a0ef71e838c46fa47d1ad",
@@ -75,20 +64,9 @@
 
             .done(function(response) {
                 for (x = 0; x < response.length; x++) {
-                    //var current = response[x].name;
-                    //console.log(current);
                     currentCountryList.push(response[x].name);
-                    //$('#countryListDD').append('<li><a href="#">' + current + '</a></li>');
 
                 }
-
-                //console.log(currentCountryList);
-
-
-                // $('#countryListDD>li').on('click', function(event) {
-                // 	var selectedCountryName = $(event.target).text();
-                // 	$('#countryDropdown').text(selectedCountryName);
-                // 	console.log("You selected "+selectedCountryName)
                 for (x = 0; x < currentCountryList.length; x++) {
                     $.ajax({
                         url: "http://api.undata-api.org/WHO/" + selectedDataSet + "/" + currentCountryList[x] + "/records?app_id=5444b42d&app_key=6090984d2a7a0ef71e838c46fa47d1ad",
@@ -97,20 +75,14 @@
                     })
 
                     .done(function(response) {
-                    	//console.log(response[0].value);
-                        //var current = response[0].value;
-                        //console.log(current);
                         currentDataValue.push(response[0].value);
-                        //     	$('#dataDisplay').empty();
-                        //     	$('#dataDisplay').append(response[0].value);
-
                     });
                 }
                 console.log(currentCountryList);
                 console.log(currentDataValue);
-for (x=0; x<currentCountryList.length; x++){
-	$('#dataDisplay>table>tbody').append('<tr><td>'+currentCountryList[x]+'</td><td>'+currentDataValue[x]+'</td></tr>')
-}
+                for (x = 0; x < currentCountryList.length; x++) {
+                    $('#dataDisplay>table>tbody').append('<tr><td>' + currentCountryList[x] + '</td><td>' + currentDataValue[x] + '</td></tr>')
+                }
 
 
             })
@@ -119,8 +91,6 @@ for (x=0; x<currentCountryList.length; x++){
 
 
     });
-
-
     </script>
 </body>
 
