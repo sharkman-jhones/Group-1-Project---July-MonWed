@@ -146,3 +146,22 @@
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), 0 0 7px #96c7ec;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), 0 0 7px #96c7ec;
 }
+
+.datatable {
+    width: 500px;
+    z-index: 11000;
+}
+
+table {
+    border: 1px solid #2A89D4;
+    z-index: 11001;
+    width: 100%;
+    padding: 15px 20px;
+    background: #f3f6fa;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}

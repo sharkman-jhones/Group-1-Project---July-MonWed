@@ -28,6 +28,8 @@ $(function(){
   $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
 });
 
+$("#tabletrigger").leanModal();
+
 
 
 //$(".login").leanModal({closeButton: ".modal_close"});
