@@ -43,8 +43,7 @@
 
     .done(function(response) {
         for (x = 0; x < response.length; x++) {
-            var current = response[x].name;
-            $('#datasetListDD').append('<li><a href="#">' + current + '</a></li>');
+            $('#datasetListDD').append('<li><a href="#">' + response[x].name + '</a></li>');
 
         }
 
