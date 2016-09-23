@@ -6,60 +6,43 @@
 	<link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
 </head>
 <body>
-	<header><h1>The State of the World's Children</h1></header>
+	<header class=""><h1 class="jumbotron" style="text-align: center;">World Life Expectancy Query</h1></header>
 
-	<a href="#loginmodal" class="btn" id="modaltrigger">Sign In</a>
+	<div class="container">
 
-	<br>
+		<nav class="row">
+			<a href="#loginmodal" class="btn col-xs-6" id="modaltrigger">Sign In</a>
+			<a href="#datatable" class="btn col-xs-6" id="tabletrigger">View Data</a>
+		</nav>
+	</div>
 
-	<a href="#datatable" class="btn" id="tabletrigger">View Data</a>
 
-	<br>
+
+	<div class="container-fluid map">
+		
+
+
+
+
+	</div>
+		<!-- <a id="modaltrigger" href="#lean_overlay" rel="leanModal"></a> -->
+
+		<div id="loginmodal" style="display:none;">
+		    <h1>User Login</h1>
+		    <form id="loginform" name="loginform" method="post" action="index.html">
+		      <label for="username">Username:</label>
+		      <input type="text" name="username" id="username" class="txtfield" tabindex="1">
+		      
+		      <label for="password">Password:</label>
+		      <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+		      
+		      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
+		    </form>
+		</div>
 
 	
 
-	<nav class="dropdown">
-  		<button onclick="myFunction()" class="dropbtn">Select Data</button>
-  		<div id="myDropdown" class="dropdown-content">
-   			<a href="#">Infant Mortality Rate per 1000 Births</a>
-    		<a href="#">Percentage of Orphaned Children</a>
-    		<a href="#">Percentage in Child Labor</a>
-    		<a href="#">Percentage Immunised against Polio by 1yr old</a>
-    		<a href="#">Life Expectancy at Birth</a>
-    		<a href="#">Contraceptive Prevalence Rate</a>
-  		</div>
-	</nav>
 
-	<div class="map">
-		
-
-	</div>
-<!-- <a id="modaltrigger" href="#lean_overlay" rel="leanModal"></a> -->
-
-<div id="loginmodal" style="display:none;">
-    <h1>User Login</h1>
-    <form id="loginform" name="loginform" method="post" action="index.html">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" class="txtfield" tabindex="1">
-      
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" class="txtfield" tabindex="2">
-      
-      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
-    </form>
-</div>
-
-<div id="datatable" style="display:none;">
-	<table>
-		<tr>
-			<th>Organization</th>
-			<th>Country</th>
-			<th>Value</th>
-		</tr>
-		<tr></tr>
-		<tr></tr>
-	</table>
-</div>
 	
 
 
