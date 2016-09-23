@@ -326,9 +326,28 @@
 
 
         $("#countryDD>ul").on("click", function(event) {
-            console.log($(event.target).text())
+            var selectedCountry = $(event.target).text();
+            console.log(selectedCountry);
+            var location;
             var geocoder = new google.maps.Geocoder();
-var location = $(event.target).text();
+            if (selectedCountry == "Bolivia (Plurinational State of)"){
+                location = "Bolivia"
+            }
+            else if (selectedCountry == "Democratic People's Republic of Korea"){
+                location = "North Korea"
+            }
+            else if (selectedCountry == "Micronesia (Federated States of)"){
+                location = "Federated States of Micronesia"
+            }
+            else if (selectedCountry == "Venezuela (Bolivarian Republic of)"){
+                location = "Venezuela"
+            }
+            else if (selectedCountry == "Republic of Korea"){
+                location = "South Korea"
+            }
+            else{
+                location = selectedCountry;
+            }
 geocoder.geocode( { 'address': location }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
         map.setZoom(5);
