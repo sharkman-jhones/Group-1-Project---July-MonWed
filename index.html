@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    
+
     <div id="map">
     </div>
 
@@ -311,6 +311,8 @@
         map.setTilt(45);
     }
 
+
+
     $.ajax({
         url: "http://api.undata-api.org/WHO/Life%20expectancy%20at%20birth/countries?app_id=5444b42d&app_key=6090984d2a7a0ef71e838c46fa47d1ad",
         method: "GET"
@@ -324,6 +326,17 @@
 
 
         $("#countryDD>ul").on("click", function(event) {
+            console.log($(event.target).text())
+            var geocoder = new google.maps.Geocoder();
+var location = $(event.target).text();
+geocoder.geocode( { 'address': location }, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+        map.setZoom(5);
+        map.setCenter(results[0].geometry.location);
+    } else {
+        alert("Could not find location: " + location);
+    }
+});
 
 
             $("#countryDD>button").text($(event.target).text());
