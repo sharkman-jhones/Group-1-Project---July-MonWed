@@ -40,10 +40,24 @@
 
     <div id="map">
     </div>
+    <div id="datatable" style="display:none">
+      <table class="table table-hover modaltable">
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Year</th>
+                            <th>Years</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+    </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWr2phkQqcN4pR8hzF26p0NyZ0Yda_qSM&callback=initMap&signed_in=true&libraries=places" async defer></script>
     <script src="assets/Javascript/jquery-3.1.0.js"></script>
     <script src="assets/Javascript/bootstrap.js"></script>
+    <script src="assets/Javascript/jquery.leanModal.min.js"></script>
     <script>
     var map;
 
@@ -372,6 +386,9 @@ geocoder.geocode( { 'address': location }, function(results, status) {
                 console.log(response[2].value);
                 $("#dataDisplay>table>tbody").empty();
                 $("#dataDisplay>table>tbody").append("<tr><td>" + response[2].area_name + "</td><td>" + response[2].year + "</td><td>" + response[2].value + "</td></tr>")
+                $("#tabletrigger").leanModal();
+                $("#datatable>table>tbody").empty();
+                $("#datatable>table>tbody").append("<tr><td>" + response[2].area_name + "</td><td>" + response[2].year + "</td><td>" + response[2].value + "</td></tr>")
 
 
             })
