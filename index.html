@@ -54,14 +54,14 @@
             </tbody>
         </table>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWr2phkQqcN4pR8hzF26p0NyZ0Yda_qSM&callback=initMap&signed_in=true&libraries=places" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWr2phkQqcN4pR8hzF26p0NyZ0Yda_qSM&callback=initialize&signed_in=true&libraries=places" async defer></script>
     <script src="assets/Javascript/jquery-3.1.0.js"></script>
     <script src="assets/Javascript/bootstrap.js"></script>
     <script src="assets/Javascript/jquery.leanModal.min.js"></script>
     <script>
     var map;
 
-    window.initMap = function() {
+    window.initialize = function() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {
                 lat: 0,
